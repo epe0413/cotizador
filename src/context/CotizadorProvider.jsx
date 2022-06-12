@@ -1,12 +1,14 @@
-import { createContext } from "react";
-
+import { useState, createContext } from "react";
 const CotizadorContext = createContext()
 
 const CotizadorProvider = ({children}) => {
 
+    
     return(
         <CotizadorContext.Provider
-            value={{}}
+            value={{
+                
+            }}
         >
             {children}
         </CotizadorContext.Provider>
