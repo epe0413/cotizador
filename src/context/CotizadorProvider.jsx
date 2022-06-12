@@ -17,6 +17,21 @@ const CotizadorProvider = ({children}) => {
             [e.target.name] : e.target.value
         })
     }
+
+    const cotizarSeguro = () => {
+        // Una base
+
+        // Obtener diferencia de años
+
+        // Por cada año restar el 3%
+
+        // Americando 15%
+        // Europeo 30%
+        // Asiatico 5%
+
+        // Básico 20%
+        // Completo 50%
+    }
     
     return(
         <CotizadorContext.Provider
@@ -24,7 +39,8 @@ const CotizadorProvider = ({children}) => {
                 datos,
                 handleChangeDatos,
                 error,
-                setError
+                setError,
+                cotizarSeguro
             }}
         >
             {children}
