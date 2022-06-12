@@ -4,13 +4,20 @@ import useCotizador from '../hooks/useCotizador'
 
 const Formulario = () => {
 
+    const { datos, handleChangeDatos } = useCotizador()
+
   return (
     <>
 
         <form>
             <div className='my-5'>
                 <label className='block mb-3 font-bold text-gray-400 uppercase'>Marca</label>
-                <select className='w-full p-3 bg-white border border-gray-200 rounded-md'>
+                <select
+                    name='marca'
+                    className='w-full p-3 bg-white border border-gray-200 rounded-md'
+                    onChange={ e => handleChangeDatos(e)}
+                    value={datos.marca}
+                >
                     <option value=''>-- Seleccione Marca --</option>
                     {MARCAS.map(marca=>(
                         <option
@@ -24,12 +31,18 @@ const Formulario = () => {
             </div>
             <div className='my-5'>
                 <label className='block mb-3 font-bold text-gray-400 uppercase'>Año</label>
-                <select className='w-full p-3 bg-white border border-gray-200 rounded-md'>
+                <select
+                    name='year' 
+                    className='w-full p-3 bg-white border border-gray-200 rounded-md'
+                    onChange={ e => handleChangeDatos(e)}
+                    value={datos.year}
+                >
                     <option value=''>-- Seleccione Año --</option>
                     {YEARS.map(year=>(
                         <option
                             key={year}
                             value={year}
+                            onChange={ e => handleChangeDatos(e)}
                         >
                             {year}
                         </option>
@@ -37,7 +50,7 @@ const Formulario = () => {
                 </select>
             </div>
             <div className='my-5'>
-                <label className='block mb-3 font-bold text-gray-400 uppercase'>Plan</label>
+                <label name='plan' className='block mb-3 font-bold text-gray-400 uppercase'>Plan</label>
                 <div className='flex gap-3 items-center'>
                     {PLANES.map(plan => (
                         <Fragment key={plan.id}>
@@ -48,6 +61,7 @@ const Formulario = () => {
                                 type='radio'
                                 name='plan'
                                 value={plan.id}
+                                onChange={ e => handleChangeDatos(e)}
                             />
                         </Fragment>
                     ))}
